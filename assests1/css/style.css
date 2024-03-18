@@ -128,7 +128,7 @@ a,
 }
 
 img {
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -765,9 +765,9 @@ ul.social_top_icon li a:hover {
 
 .Reviwe .Reviwe_box h3 {
     color: #ff8c00;
+    font:auto;
     -size: 30px;
-    line-height: 28px;
-    padding-left: 25px 0px;
+    line-height: 28px ;padding: 25px 0px;
     padding-top: 32px;
 }
 
