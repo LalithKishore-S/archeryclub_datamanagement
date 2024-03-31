@@ -10,8 +10,9 @@
   <body>
     <!-- Body of Form starts -->
   	<div class="container">
-      <form method="post" autocomplete="on">
+      <form action="archer_registration" method="POST" autocomplete="on">
         <!--First name-->
+		{% csrf_token %}
     		<div class="box">
           <label for="firstName" class="fl fontLabel"> First Name: </label>
     			<div class="new iconBox">
@@ -28,7 +29,7 @@
 
         <!--Second name-->
     		<div class="box">
-          <label for="secondName" class="fl fontLabel"> Seconed Name: </label>
+          <label for="secondName" class="fl fontLabel"> Second Name: </label>
     			<div class="fl iconBox"><i class="fa fa-user" aria-hidden="true"></i></div>
     			<div class="fr">
     					<input type="text" required name="secondName"
@@ -97,6 +98,12 @@
     		</div>
     		<!---Submit Button----->
       </form>
+
+	<div>
+		{% for message in messages %}
+		<h3>{{message}}</h3>
+		{% endfor %}
+	</div>
   </div>
   <!--Body of Form ends--->
   </body>

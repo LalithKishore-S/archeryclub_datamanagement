@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-
+    'home.apps.HomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,11 +77,10 @@ WSGI_APPLICATION = 'archery_club_management.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracledb',
-        'NAME': 'lalith',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'localhost:1521/orcLnew',
         'USER':'Lalith',
         'PASSWORD':'L@lith2708',
-        'HOST':'localhost'
     }
 }
 
