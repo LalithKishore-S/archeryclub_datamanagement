@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{% static 'css/global_userportal.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/user-enter-practicedet.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="user-enter-practicedet">
+      <div class="typecentered-nav">
+        <div class="brand4">
+          <img class="icon4" alt="" src="{% static 'images/icon1.svg' %}" />
+
+          <div class="brandname4">LH Archery</div>
+        </div>
+      </div>
+      <div class="property-1boxed">
+        <div class="sign-up-container">
+          <b class="sign-up-heading">Enter Details</b>
+          <form action="practice_details_entry" method="POST">
+            {% csrf_token %}
+          <div class="copy-component1">
+            <div class="input">
+              <div class="label">Date of Practice:</div>
+              <input class="input-form" type="text" name="dop"/>
+            </div>
+            <div class="input">
+              <div class="label">Distance:</div>
+              <input class="input-form" type="text" name="dist"/>
+            </div>
+            <div class="input">
+              <div class="label">Number of arrows in volume:</div>
+              <input class="input-form" type="text" name="no_arrows"/>
+            </div>
+            <div class="input">
+              <div class="label">Score:</div>
+              <input class="input-form" type="text" name="score"/>
+            </div>
+            <div class="input">
+              <div class="label">Scale of:</div>
+              <input class="input-form" type="text" name="scale"/>
+            </div>
+            <button type="submit" class="coach-loginbutton">
+              <div class="text-container">
+                <div class="cta">Deploy values</div>
+              </div>
+            </button>
+          </div>
+        </form>
+          <div class="by-continuing-you">
+            By continuing you agree to our Terms of Service and Privacy Policy
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
