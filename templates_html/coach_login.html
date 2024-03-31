@@ -1,0 +1,51 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{% static 'css/global_userlogin.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index_userlogin.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="final-coach-loginpage">
+      <div class="typecentered-nav">
+        <div class="brand">
+          <img class="icon" alt="" src="{% static 'images/icon.svg' %}" />
+
+          <div class="brandname">LH Archery</div>
+        </div>
+      </div>
+      <div class="property-1boxed">
+        <div class="sign-up-container">
+          <b class="sign-up-heading">User Login</b>
+          <div class="copy-component">
+            <div class="input">
+              <div class="label">Username:</div>
+              <input class="input-form" type="text" />
+            </div>
+            <div class="form">
+              <div class="input">
+                <div class="label">Password:</div>
+                <input class="input-form" type="text" />
+              </div>
+              <button class="coach-loginbutton">
+                <div class="text-container">
+                  <div class="cta">User Login</div>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="by-continuing-you">
+            By continuing you agree to our Terms of Service and Privacy Policy
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
