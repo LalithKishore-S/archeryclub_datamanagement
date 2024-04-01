@@ -47,10 +47,29 @@ def practice_details_entry(request):
         return render(request,"user-enter-practicedet.html")
 
 def match_details_user(request):
-    return render(request,"boast-yourself.html")
+    with connections['default'].cursor() as cursor:
+            username=request.user.username
+            cursor.execute("SELECT AID FROM PLAYER WHERE NAME=:username",{'username':username})
+            aid=cursor.fetchone()[0]
+            cursor.execute("SELECT MATCH_NAME,DOM,AGG_SCORE,OUT_OF,RANK FROM ATTENDS NATURAL JOIN MATCH NATURAL JOIN PLAYER WHERE AID=:AID",{'AID':aid})
+            data=cursor.fetchall()
+    return render(request,"boast-yourself.html",{'data':data})
 
 def practice_details(request):
-    return render(request,"know-how-well-you-have-performed.html")
+    with connections['default'].cursor() as cursor:
+            username=request.user.username
+            cursor.execute("SELECT AID FROM PLAYER WHERE NAME=:username",{'username':username})
+            aid=cursor.fetchone()[0]
+            cursor.execute("SELECT DOP,DISTANCE,NO_ARROWS,AGG_SCORE,OUT_OF FROM PRACTICE NATURAL JOIN PLAYER WHERE AID=:AID",{'AID':aid})
+            data=cursor.fetchall()
+            print(data)
+    return render(request,"know-how-well-you-have-performed.html",{'data':data})
 
 def training_protocol(request):
-    return render(request,"know-about-yourself.html")
+    with connections['default'].cursor() as cursor:
+            username=request.user.username
+            cursor.execute("SELECT AID FROM PLAYER WHERE NAME=:username",{'username':username})
+            aid=cursor.fetchone()[0]
+            cursor.execute("SELECT RESULT,MON,TUES,WED,THURS,FRI,SAT,SUN FROM FITNESSTEST NATURAL JOIN TRAINPROT NATURAL JOIN PLAYER WHERE AID=:AID",{'AID':aid})
+            data=cursor.fetchall()
+    return render(request,"know-about-yourself.html",{'data':data})

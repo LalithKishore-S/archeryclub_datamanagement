@@ -11,7 +11,9 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
     />
+    
   </head>
+
   <body>
     <div class="boast-yourself">
       <div class="typebubble-inverted1">
@@ -21,9 +23,38 @@
             <img class="icon1" alt="" src="{% static 'images/icon.svg' %}" />
 
             <div class="brandname1">LH Archery</div>
+            <br>
           </div>
         </div>
       </div>
+      <center>
+        <br><br><br><br><br><br>
+      <table border="1" align="left">
+        <tr>
+            <th>Match name</th>
+            <th>Date of match</th>
+            <th>Score</th>
+            <th>Out_of</th>
+            <th>Rank</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.0 }}</td>
+            <td>{{ row.1 }}</td>
+            <td>{{ row.2 }}</td>
+            <td>{{ row.3 }}</td>
+            <td>{{ row.4 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </center>
+    <center>
+      <br><br><br><br><br><br>
+      <form action="archer_portal" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Ok">
+    </form>
+    </center>
     </div>
   </body>
 </html>

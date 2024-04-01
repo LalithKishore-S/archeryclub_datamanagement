@@ -12,6 +12,7 @@
   position: relative;
   line-height: 150%;
   font-weight: 600;
+  display: inline-block;
 }
 .brand1 {
   margin: 0 !important;
