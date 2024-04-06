@@ -1,0 +1,62 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{% static 'css/global_coachportal.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/match-details.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="match-details">
+      <div class="typecentered-nav4">
+        <div class="brand5">
+          <img class="icon5" alt="" src="{% static 'images/icon1.svg' %}" />
+
+          <div class="brandname5">LH Archery</div>
+        </div>
+      </div>
+      <div class="property-1boxed4">
+        <div class="sign-up-container4">
+          <b class="sign-up-heading4">Match Details</b>
+          <div class="copy-component4">
+            <div class="input18">
+              <div class="label18">AID:</div>
+              <input class="input-form18" type="text" />
+            </div>
+            <div class="input18">
+              <div class="label18">Match Name:</div>
+              <input class="input-form18" type="text" />
+            </div>
+            <div class="input18">
+              <div class="label18">Aggregated Score:</div>
+              <input class="input-form18" type="text" />
+
+              <div class="label18">Sale: (out of)</div>
+              <input class="input-form18" type="text" />
+            </div>
+            <div class="input18">
+              <div class="label18">Rank:</div>
+              <input class="input-form18" type="text" />
+            </div>
+            <button class="form4">
+              <button class="coach-loginbutton13">
+                <div class="text-container13">
+                  <div class="cta13">Deploy values</div>
+                </div>
+              </button>
+            </button>
+          </div>
+          <div class="by-continuing-you4">
+            By continuing you agree to our Terms of Service and Privacy Policy
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

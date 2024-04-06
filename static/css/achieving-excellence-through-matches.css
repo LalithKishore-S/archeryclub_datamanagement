@@ -1,0 +1,181 @@
+.icon6 {
+  width: 24px;
+  position: relative;
+  height: 24px;
+}
+.brandname6 {
+  position: relative;
+  line-height: 150%;
+  font-weight: 600;
+}
+.brand6 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px var(--padding-5xs);
+  gap: var(--gap-5xs);
+}
+.typecentered-nav5 {
+  width: 100%;
+  margin: 0 !important;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: var(--color-gray-200);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5xs);
+  box-sizing: border-box;
+  z-index: 1;
+}
+.sign-up-heading5 {
+  width: 720px;
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 118%;
+  display: inline-block;
+  white-space: pre-wrap;
+}
+.label23 {
+  align-self: stretch;
+  position: relative;
+  line-height: 150%;
+  font-weight: 600;
+}
+.input-form23 {
+  border: 1px solid var(--color-dimgray);
+  outline: none;
+  font-family: var(--font-inter);
+  font-size: var(--font-size-mid);
+  background-color: var(--color-gray-200);
+  align-self: stretch;
+  border-radius: var(--br-9xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-base);
+  color: var(--color-white);
+}
+.input22 {
+  align-self: stretch;
+  border-radius: var(--br-9xs);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--gap-9xs);
+}
+.cta14 {
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-xl);
+  line-height: 150%;
+  font-weight: 600;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: center;
+}
+.text-container14 {
+  flex: 1;
+  height: 21px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px var(--padding-9xs);
+  box-sizing: border-box;
+}
+.coach-loginbutton14 {
+  cursor: pointer;
+  border: none;
+  padding: var(--padding-base) var(--padding-5xl);
+  background-color: var(--color-darkorange);
+  align-self: stretch;
+  border-radius: var(--br-9xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.form5 {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.copy-component5 {
+  width: 480px;
+  border-radius: var(--br-base);
+  background-color: var(--color-gray-200);
+  height: 554px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-13xl);
+  box-sizing: border-box;
+  gap: var(--gap-base);
+  max-width: 480px;
+  text-align: left;
+  font-size: var(--font-size-xl);
+}
+.by-continuing-you5 {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-xs);
+  line-height: 160%;
+  color: var(--color-white);
+}
+.sign-up-container5 {
+  width: 1024px;
+  border-radius: var(--br-5xl);
+  background-color: var(--color-darkslategray);
+  height: 809px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-61xl) var(--padding-base);
+  box-sizing: border-box;
+  gap: var(--gap-13xl);
+  min-width: 322px;
+  max-width: 1024px;
+}
+.property-1boxed5 {
+  width: 1512px;
+  background-color: var(--color-gray-200);
+  height: 1028px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-101xl) var(--padding-base);
+  box-sizing: border-box;
+  z-index: 0;
+  text-align: center;
+  font-size: var(--font-size-19xl);
+}
+.achieving-excellence-through-m {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
+  height: 1028px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: var(--font-size-11xl);
+  color: var(--color-whitesmoke-200);
+  font-family: var(--font-inter);
+}
