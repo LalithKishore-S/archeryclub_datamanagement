@@ -24,43 +24,51 @@
       <div class="property-1boxed8">
         <div class="sign-up-container8">
           <b class="sign-up-heading8">Enroll your Champion</b>
-          <div class="copy-component8">
-            <div class="input34">
-              <div class="label34">AID:</div>
-              <input class="input-form34" type="text" />
-            </div>
-            <div class="input34">
-              <div class="label34">Name:</div>
-              <input class="input-form34" type="text" />
-            </div>
-            <div class="input34">
-              <div class="label34">Date of Birth:</div>
-              <input class="input-form34" type="text" />
-            </div>
-            <div class="input34">
-              <div class="label34">Gender:</div>
-              <input class="input-form34" type="text" />
-            </div>
-            <div class="input34">
-              <div class="label34">Phone No:</div>
-              <input class="input-form34" type="text" />
-            </div>
-            <div class="input34">
-              <div class="label34">Address:</div>
-              <input class="input-form34" type="text" />
-            </div>
-            <div class="input34">
-              <div class="label34">Category (Bow):</div>
-              <input class="input-form34" type="text" />
-            </div>
-            <div class="input41"></div>
-            <button class="form8">
-              <button class="coach-loginbutton17">
-                <div class="text-container17">
-                  <div class="cta17">Deploy values</div>
-                </div>
+          <form action="enroll_your_champion" method="POST">
+            {% csrf_token %}
+            <div class="copy-component8">
+              <div class="input34">
+                <div class="label34">AID:</div>
+                <input class="input-form34" type="text" name="AID"/>
+              </div>
+              <div class="input34">
+                <div class="label34">Name:</div>
+                <input class="input-form34" type="text" name="name"/>
+              </div>
+              <div class="input34">
+                <div class="label34">Date of Birth:</div>
+                <input class="input-form34" type="text" name="dob"/>
+              </div>
+              <div class="input34">
+                <div class="label34">Gender:</div>
+                <input class="input-form34" type="text" name="gender"/>
+              </div>
+              <div class="input34">
+                <div class="label34">Phone No:</div>
+                <input class="input-form34" type="text" name="phno"/>
+              </div>
+              <div class="input34">
+                <div class="label34">Address:</div>
+                <input class="input-form34" type="text" name="add"/>
+              </div>
+              <div class="input34">
+                <div class="label34">Category (Bow):</div>
+                <input class="input-form34" type="text" name="category"/>
+              </div>
+              <div class="input41"></div>
+              <button class="form8">
+                <button class="coach-loginbutton17">
+                  <div class="text-container17">
+                    <div class="cta17">Deploy values</div>
+                  </div>
+                </button>
               </button>
-            </button>
+            </div>
+          </form>
+          <div>
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
           </div>
           <div class="by-continuing-you8">
             By continuing you agree to our Terms of Service and Privacy Policy

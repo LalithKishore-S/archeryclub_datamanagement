@@ -16,7 +16,7 @@
     <div class="sad-to-see-your-chanpion-go">
       <div class="typecentered-nav7">
         <div class="brand9">
-          <img class="icon9" alt="" src="{% static 'images/icon1.svg'" />
+          <img class="icon9" alt="" src="{% static 'images/icon1.svg' %}" />
 
           <div class="brandname9">LH Archery</div>
         </div>
@@ -24,22 +24,30 @@
       <div class="property-1boxed7">
         <div class="sign-up-container7">
           <b class="sign-up-heading7">Sad to see your champion go!</b>
-          <div class="copy-component7">
-            <div class="input32">
-              <div class="label32">AID:</div>
-              <input class="input-form32" type="text" />
-            </div>
-            <div class="input32">
-              <div class="label32">Name:</div>
-              <input class="input-form32" type="text" />
-            </div>
-            <button class="form7">
-              <button class="coach-loginbutton16">
-                <div class="text-container16">
-                  <div class="cta16">Deploy values</div>
-                </div>
+          <form action="sad_to_see_your_champion_go" method="POST">
+            {% csrf_token %}
+            <div class="copy-component7">
+              <div class="input32">
+                <div class="label32">AID:</div>
+                <input class="input-form32" type="text" name="AID"/>
+              </div>
+              <div class="input32">
+                <div class="label32">Name:</div>
+                <input class="input-form32" type="text" name="name"/>
+              </div>
+              <button class="form7" type="submit">
+                <button class="coach-loginbutton16">
+                  <div class="text-container16">
+                    <div class="cta16">Deploy values</div>
+                  </div>
+                </button>
               </button>
-            </button>
+            </div>
+          </form>
+          <div>
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
           </div>
           <div class="by-continuing-you7">
             By continuing you agree to our Terms of Service and Privacy Policy

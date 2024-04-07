@@ -14,4 +14,5 @@ urlpatterns = [
     path('view_fitness_details',views.view_fitness_details,name='view_fitness_details'),
     path('modify_fitness_test',views.modify_fitness_test,name='modify_fitness_test'),
     path('modify_training_protocol',views.modify_training_protocol,name='modify_training_protocol'),
+    path('coach_portal',views.coach_portal,name='coach_portal'),
 ]
