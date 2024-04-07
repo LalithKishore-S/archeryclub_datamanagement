@@ -17,40 +17,46 @@
       <div class="typecentered-nav4">
         <div class="brand5">
           <img class="icon5" alt="" src="{% static 'images/icon1.svg' %}" />
-
           <div class="brandname5">LH Archery</div>
         </div>
       </div>
       <div class="property-1boxed4">
         <div class="sign-up-container4">
           <b class="sign-up-heading4">Match Details</b>
-          <div class="copy-component4">
-            <div class="input18">
-              <div class="label18">AID:</div>
-              <input class="input-form18" type="text" />
-            </div>
-            <div class="input18">
-              <div class="label18">Match Name:</div>
-              <input class="input-form18" type="text" />
-            </div>
-            <div class="input18">
-              <div class="label18">Aggregated Score:</div>
-              <input class="input-form18" type="text" />
-
-              <div class="label18">Sale: (out of)</div>
-              <input class="input-form18" type="text" />
-            </div>
-            <div class="input18">
-              <div class="label18">Rank:</div>
-              <input class="input-form18" type="text" />
-            </div>
-            <button class="form4">
-              <button class="coach-loginbutton13">
-                <div class="text-container13">
-                  <div class="cta13">Deploy values</div>
-                </div>
+          <form action="match_details" method="POST">
+            {% csrf_token %}
+            <div class="copy-component4">
+              <div class="input18">
+                <div class="label18">AID:</div>
+                <input class="input-form18" type="text" name="aid"/>
+              </div>
+              <div class="input18">
+                <div class="label18">Match Name:</div>
+                <input class="input-form18" type="text" name="match_name"/>
+              </div>
+              <div class="input18">
+                <div class="label18">Aggregated Score:</div>
+                <input class="input-form18" type="text" name="agg_score"/>
+                <div class="label18">Scale: (out of)</div>
+                <input class="input-form18" type="text" name="scale"/>
+              </div>
+              <div class="input18">
+                <div class="label18">Rank:</div>
+                <input class="input-form18" type="text" name="rank"/>
+              </div>
+              <button class="form4" type="submit">
+                <button class="coach-loginbutton13">
+                  <div class="text-container13">
+                    <div class="cta13">Deploy values</div>
+                  </div>
+                </button>
               </button>
-            </button>
+            </div>
+          </form>
+          <div>
+            {% for message in messages %}
+              <h3>{{message}}</h3>
+              {% endfor %}
           </div>
           <div class="by-continuing-you4">
             By continuing you agree to our Terms of Service and Privacy Policy

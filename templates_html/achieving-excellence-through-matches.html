@@ -24,22 +24,30 @@
       <div class="property-1boxed5">
         <div class="sign-up-container5">
           <b class="sign-up-heading5">Achieving Excellence through Matches</b>
-          <div class="copy-component5">
-            <div class="input22">
-              <div class="label23">Match Name:</div>
-              <input class="input-form23" type="text" />
-            </div>
-            <div class="input22">
-              <div class="label23">Date of Match:</div>
-              <input class="input-form23" type="text" />
-            </div>
-            <button class="form5">
-              <button class="coach-loginbutton14">
-                <div class="text-container14">
-                  <div class="cta14">Deploy values</div>
-                </div>
+          <form action="achieving_excellence_through_matches" method="POST">
+            {% csrf_token %}
+            <div class="copy-component5">
+              <div class="input22">
+                <div class="label23">Match Name:</div>
+                <input class="input-form23" type="text" name="name"/>
+              </div>
+              <div class="input22">
+                <div class="label23">Date of Match:</div>
+                <input class="input-form23" type="text" name="dom"/>
+              </div>
+              <button class="form5" type="submit">
+                <button class="coach-loginbutton14">
+                  <div class="text-container14">
+                    <div class="cta14">Deploy values</div>
+                  </div>
+                </button>
               </button>
-            </button>
+            </div>
+          </form>
+          <div>
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
           </div>
           <div class="by-continuing-you5">
             By continuing you agree to our Terms of Service and Privacy Policy

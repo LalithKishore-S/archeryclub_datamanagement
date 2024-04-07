@@ -24,43 +24,51 @@
       <div class="property-1boxed6">
         <div class="sign-up-container6">
           <b class="sign-up-heading6">Update your Guy</b>
-          <div class="copy-component6">
-            <div class="input24">
-              <div class="label25">AID:</div>
-              <input class="input-form25" type="text" />
-            </div>
-            <div class="input24">
-              <div class="label25">Name:</div>
-              <input class="input-form25" type="text" />
-            </div>
-            <div class="input24">
-              <div class="label25">Date of Birth:</div>
-              <input class="input-form25" type="text" />
-            </div>
-            <div class="input24">
-              <div class="label25">Gender:</div>
-              <input class="input-form25" type="text" />
-            </div>
-            <div class="input24">
-              <div class="label25">Phone No:</div>
-              <input class="input-form25" type="text" />
-            </div>
-            <div class="input24">
-              <div class="label25">Address:</div>
-              <input class="input-form25" type="text" />
-            </div>
-            <div class="input24">
-              <div class="label25">Category (Bow):</div>
-              <input class="input-form25" type="text" />
-            </div>
-            <div class="input31"></div>
-            <button class="form6">
-              <button class="coach-loginbutton15">
-                <div class="text-container15">
-                  <div class="cta15">Deploy values</div>
-                </div>
+          <form action="update_your_guy" method="POST">
+            {% csrf_token %}
+            <div class="copy-component6">
+              <div class="input24">
+                <div class="label25">AID:</div>
+                <input class="input-form25" type="text" name="AID"/>
+              </div>
+              <div class="input24">
+                <div class="label25">Name:</div>
+                <input class="input-form25" type="text" name="name"/>
+              </div>
+              <div class="input24">
+                <div class="label25">Date of Birth:</div>
+                <input class="input-form25" type="text" name="dob"/>
+              </div>
+              <div class="input24">
+                <div class="label25">Gender:</div>
+                <input class="input-form25" type="text" name="gender"/>
+              </div>
+              <div class="input24">
+                <div class="label25">Phone No:</div>
+                <input class="input-form25" type="text" name="phno"/>
+              </div>
+              <div class="input24">
+                <div class="label25">Address:</div>
+                <input class="input-form25" type="text" name="add"/>
+              </div>
+              <div class="input24">
+                <div class="label25">Category (Bow):</div>
+                <input class="input-form25" type="text" name="category"/>
+              </div>
+              <div class="input31"></div>
+              <button class="form6" type="submit">
+                <button class="coach-loginbutton15">
+                  <div class="text-container15">
+                    <div class="cta15">Deploy values</div>
+                  </div>
+                </button>
               </button>
-            </button>
+            </div>
+          </form>
+          <div>
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
           </div>
           <div class="by-continuing-you6">
             By continuing you agree to our Terms of Service and Privacy Policy
