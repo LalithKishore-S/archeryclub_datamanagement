@@ -1,0 +1,94 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/know-how-well-you-have-performed.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="know-how-well-you-have-perform">
+      <div class="typebubble-inverted1">
+        <div class="bubble-container1">
+          <div class="nav-links1"></div>
+          <div class="brand1">
+            <img class="icon1" alt="" src="{% static 'images/icon.svg' %}" />
+
+            <div class="brandname1">LH Archery</div>
+          </div>
+        </div>
+      </div>
+      <center>
+        <br><br><br><br><br><br>
+        <div>  Practice Details </div>
+      </center>
+      <center>
+        <br><br><br>
+      <table border="1" align="left">
+        <tr>
+            <th>AID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Distance</th>
+            <th>No of arrows of volume</th>
+            <th>Aggregated score</th>
+            <th>Out of</th>
+        </tr>
+        {% for row in data2 %}
+        <tr>
+            <td>{{ row.0 }}</td>
+            <td>{{ row.1 }}</td>
+            <td>{{ row.2 }}</td>
+            <td>{{ row.3 }}</td>
+            <td>{{ row.4 }}</td>
+            <td>{{ row.5 }}</td>
+            <td>{{ row.6 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+      </center>
+      <center>
+        <br><br><br><br><br><br>
+        <div>  Match Details </div>
+      </center>
+      <center>
+        <br><br><br><br><br><br>
+      <table border="1" align="left">
+        <tr>
+            <th>AID</th>
+            <th>Name</th>
+            <th>Match name</th>
+            <th>Date of match</th>
+            <th>Score</th>
+            <th>Out_of</th>
+            <th>Rank</th>
+        </tr>
+        {% for row in data1 %}
+        <tr>
+            <td>{{ row.0 }}</td>
+            <td>{{ row.1 }}</td>
+            <td>{{ row.2 }}</td>
+            <td>{{ row.3 }}</td>
+            <td>{{ row.4 }}</td>
+            <td>{{ row.5 }}</td>
+            <td>{{ row.6 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </center>
+      <center>
+        <br><br><br><br><br><br>
+      <form action="coach_portal" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Ok">
+    </form>
+      </center>
+    </div>
+  </body>
+</html>

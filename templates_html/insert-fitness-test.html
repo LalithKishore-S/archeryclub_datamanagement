@@ -23,38 +23,42 @@
       </div>
       <div class="property-1boxed3">
         <div class="sign-up-container3">
-          <b class="sign-up-heading3">Insert Fitness Test Details</b>
-          <div class="copy-component3">
-            <div class="input13">
-              <div class="label13">AID:</div>
-              <input class="input-form13" type="text" />
-            </div>
-            <div class="input13">
-              <div class="label13">Number of Squats</div>
-              <input class="input-form13" type="text" />
-            </div>
-            <div class="input13">
-              <div class="label13">Number of Burbee</div>
-              <input class="input-form13" type="text" />
-            </div>
-            <div class="input13">
-              <div class="label13">Runtime number:</div>
-              <input class="input-form13" type="text" />
-            </div>
-            <div class="input13">
-              <div class="label13">Result</div>
-              <input class="input-form13" type="text" />
-            </div>
-            <button class="form3">
-              <button class="coach-loginbutton12">
-                <div class="text-container12">
-                  <div class="cta12">Deploy values</div>
-                </div>
+          <b class="sign-up-heading3">Insert or modify Fitness Test Details</b>
+          <form action="insert_modify_fitness_test" method="POST">
+            {% csrf_token %}
+            <div class="copy-component3">
+              <div class="input13">
+                <div class="label13">AID:</div>
+                <input class="input-form13" type="text" name="AID"/>
+              </div>
+              <div class="input13">
+                <div class="label13">Number of Squats</div>
+                <input class="input-form13" type="text" name="nos"/>
+              </div>
+              <div class="input13">
+                <div class="label13">Number of Burbee</div>
+                <input class="input-form13" type="text" name="nob"/>
+              </div>
+              <div class="input13">
+                <div class="label13">Runtime number:</div>
+                <input class="input-form13" type="text" name="time"/>
+              </div>
+              <button class="form3" type="submit">
+                <button class="coach-loginbutton12">
+                  <div class="text-container12">
+                    <div class="cta12">Deploy values</div>
+                  </div>
+                </button>
               </button>
-            </button>
+            </div>
+          </form>
+          <div>
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
           </div>
           <div class="by-continuing-you3">
-            By continuing you agree to our Terms of Service and Privacy Policy
+              By continuing you agree to our Terms of Service and Privacy Policy
           </div>
         </div>
       </div>

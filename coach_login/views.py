@@ -167,8 +167,44 @@ def match_details(request):
     else:
         return render(request,"match-details.html")
 
-def insert_fitness_test(request):
-    return render(request,"insert-fitness-test.html")
+def insert_modify_fitness_test(request):
+    if request.method=='POST':
+        aid=request.POST['AID']
+        existing_aids=[]
+        with connections['default'].cursor() as cursor:
+            cursor.execute("SELECT AID FROM PLAYER")
+            data=cursor.fetchall()
+            existing_aids=[item[0] for item in data]
+            cursor.close()
+        if aid not in existing_aids:
+            messages.info(request,'AID does not exist')
+            return redirect("insert_modify_fitness_test")
+        else:
+            existing_aids=[]
+            with connections['default'].cursor() as cursor:
+                cursor.execute("SELECT AID FROM FITNESSTEST")
+                data=cursor.fetchall()
+                print(data)
+                existing_aids=[item[0] for item in data]
+                cursor.close()
+            if aid in existing_aids:
+                with connections['default'].cursor() as cursor:
+                    cursor.execute("DELETE FROM FITNESSTEST WHERE AID=:AID",{'AID':aid})
+                    cursor.close()
+            nos=int(request.POST['nos'])
+            nob=int(request.POST['nob'])
+            time=float(request.POST['time'])
+            if nos>40 and nob>=10 and time<=16:
+                res='P'
+            elif nob<5 and time>20:
+                res='B'
+            else:
+                res='I'
+            with connections['default'].cursor() as cursor:
+                cursor.execute("INSERT INTO FITNESSTEST VALUES(:AID,:NOS,:NOB,:TIME,:RES)",{'AID':aid,'NOS':nos,'NOB':nob,'TIME':time,'RES':res})
+        return redirect("coach_portal")
+    else:
+        return render(request,"insert-fitness-test.html")
 
 def view_fitness_details(request):
     with connections['default'].cursor() as cursor:
@@ -176,11 +212,26 @@ def view_fitness_details(request):
             data=cursor.fetchall()
     return render(request,"view-fitness-details.html",{'data':data})
 
-def modify_fitness_test(request):
-    return render(request,"modify-fitness-test.html")
+def view_match_practice(request):
+    with connections['default'].cursor() as cursor:
+        cursor.execute("SELECT AID,NAME,MATCH_NAME,DOM,AGG_SCORE,OUT_OF,RANK FROM ATTENDS NATURAL JOIN MATCH NATURAL JOIN PLAYER ")
+        data1=cursor.fetchall()
+        cursor.execute("SELECT AID,NAME,DOP,DISTANCE,NO_ARROWS,AGG_SCORE,OUT_OF FROM PRACTICE NATURAL JOIN PLAYER")
+        data2=cursor.fetchall()
+    return render(request,"coach_portal_view_match_practice.html",{'data1':data1,'data2':data2})
 
-def modify_training_protocol(request):
-    return render(request,"modify-training-protocol.html")
+def modify_training_protocol(request):  
+    if request.method=='POST':
+        res=request.POST['res']
+        if res in ('P','I','B'):
+            with connections['default'].cursor() as cursor:
+                cursor.execute("UPDATE TRAINPROT SET MON=:M,TUES=:T,WED=:W,THURS=:TH,FRI=:F,SAT=:S,SUN=:SU WHERE RESULT=:R",{'R':res,'M':request.POST['mon'],'t':request.POST['tues'],'w':request.POST['wed'],'th':request.POST['thurs'],'f':request.POST['fri'],'s':request.POST['sat'],'su':request.POST['sun'],})
+            return redirect("coach_portal")
+        else:
+            messages.info(request,"Result type must be in (P,I,B)")
+            return redirect("modify_training_protocol")
+    else:
+        return render(request,"modify-training-protocol.html")
 
 def coach_portal(request):
     return render(request,"coach_portal.html")

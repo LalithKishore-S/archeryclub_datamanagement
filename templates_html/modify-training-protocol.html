@@ -24,46 +24,54 @@
       <div class="property-1boxed1">
         <div class="sign-up-container1">
           <b class="sign-up-heading1">Modify Training Protocol</b>
-          <div class="copy-component1">
-            <div class="input">
-              <div class="label">Result:</div>
-              <input class="input-form" type="text" />
-            </div>
-            <div class="input">
-              <div class="label">Monday:</div>
-              <input class="input-form" type="text" />
-            </div>
-            <div class="input">
-              <div class="label">Tuesday:</div>
-              <input class="input-form" type="text" />
-            </div>
-            <div class="input">
-              <div class="label">Wednesday:</div>
-              <input class="input-form" type="text" />
-            </div>
-            <div class="input">
-              <div class="label">Thursday:</div>
-              <input class="input-form" type="text" />
-            </div>
-            <div class="input">
-              <div class="label">Friday:</div>
-              <input class="input-form" type="text" />
-            </div>
-            <div class="input">
-              <div class="label">Saturday:</div>
-              <input class="input-form" type="text" />
-            </div>
-            <div class="input">
-              <div class="label">Sunday:</div>
-              <input class="input-form" type="text" />
-            </div>
-            <button class="form1">
-              <button class="coach-loginbutton10">
-                <div class="text-container10">
-                  <div class="cta10">Deploy values</div>
-                </div>
+          <form action="modify_training_protocol" method="POST">
+            {% csrf_token %}
+            <div class="copy-component1">
+              <div class="input">
+                <div class="label">Result:</div>
+                <input class="input-form" type="text" name="res"/>
+              </div>
+              <div class="input">
+                <div class="label">Monday:</div>
+                <input class="input-form" type="text" name="mon"/>
+              </div>
+              <div class="input">
+                <div class="label">Tuesday:</div>
+                <input class="input-form" type="text" name="tues"/>
+              </div>
+              <div class="input">
+                <div class="label">Wednesday:</div>
+                <input class="input-form" type="text" name="wed"/>
+              </div>
+              <div class="input">
+                <div class="label">Thursday:</div>
+                <input class="input-form" type="text" name="thurs"/>
+              </div>
+              <div class="input">
+                <div class="label">Friday:</div>
+                <input class="input-form" type="text" name="fri"/>
+              </div>
+              <div class="input">
+                <div class="label">Saturday:</div>
+                <input class="input-form" type="text" name="sat"/>
+              </div>
+              <div class="input">
+                <div class="label">Sunday:</div>
+                <input class="input-form" type="text" name="sun"/>
+              </div>
+              <button class="form1">
+                <button class="coach-loginbutton10">
+                  <div class="text-container10">
+                    <div class="cta10">Deploy values</div>
+                  </div>
+                </button>
               </button>
-            </button>
+            </div>
+          </form>
+          <div>
+            {% for message in messages %}
+              <h3>{{message}}</h3>
+              {% endfor %}
           </div>
           <div class="by-continuing-you1">
             By continuing you agree to our Terms of Service and Privacy Policy
