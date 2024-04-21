@@ -1,0 +1,59 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{% static 'css/global_coachportal.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/achieving-excellence-through-matches.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="achieving-excellence-through-m">
+      <div class="typecentered-nav5">
+        <div class="brand6">
+          <img class="icon6" alt="" src="{% static 'images/icon1.svg' %}" />
+
+          <div class="brandname6">LH Archery</div>
+        </div>
+      </div>
+      <div class="property-1boxed5">
+        <div class="sign-up-container5">
+          <b class="sign-up-heading5">Achieving Excellence through Matches</b>
+          <form action="achieving_excellence_through_matches" method="POST">
+            {% csrf_token %}
+            <div class="copy-component5">
+              <div class="input22">
+                <div class="label23">Match Name:</div>
+                <input class="input-form23" type="text" name="name"/>
+              </div>
+              <div class="input22">
+                <div class="label23">Date of Match:</div>
+                <input class="input-form23" type="text" name="dom"/>
+              </div>
+              <button class="form5" type="submit">
+                <button class="coach-loginbutton14">
+                  <div class="text-container14">
+                    <div class="cta14">Deploy values</div>
+                  </div>
+                </button>
+              </button>
+            </div>
+          </form>
+          <div>
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
+          </div>
+          <div class="by-continuing-you5">
+            By continuing you agree to our Terms of Service and Privacy Policy
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

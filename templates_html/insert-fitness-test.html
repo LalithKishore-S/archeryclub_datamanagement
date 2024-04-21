@@ -1,0 +1,67 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{% static 'css/global_coachportal.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/insert-fitness-test.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="insert-fitness-test">
+      <div class="typecentered-nav3">
+        <div class="brand4">
+          <img class="icon4" alt="" src="{% static 'images/icon1.svg' %}" />
+
+          <div class="brandname4">LH Archery</div>
+        </div>
+      </div>
+      <div class="property-1boxed3">
+        <div class="sign-up-container3">
+          <b class="sign-up-heading3">Insert or modify Fitness Test Details</b>
+          <form action="insert_modify_fitness_test" method="POST">
+            {% csrf_token %}
+            <div class="copy-component3">
+              <div class="input13">
+                <div class="label13">AID:</div>
+                <input class="input-form13" type="text" name="AID"/>
+              </div>
+              <div class="input13">
+                <div class="label13">Number of Squats</div>
+                <input class="input-form13" type="text" name="nos"/>
+              </div>
+              <div class="input13">
+                <div class="label13">Number of Burbee</div>
+                <input class="input-form13" type="text" name="nob"/>
+              </div>
+              <div class="input13">
+                <div class="label13">Runtime number:</div>
+                <input class="input-form13" type="text" name="time"/>
+              </div>
+              <button class="form3" type="submit">
+                <button class="coach-loginbutton12">
+                  <div class="text-container12">
+                    <div class="cta12">Deploy values</div>
+                  </div>
+                </button>
+              </button>
+            </div>
+          </form>
+          <div>
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
+          </div>
+          <div class="by-continuing-you3">
+              By continuing you agree to our Terms of Service and Privacy Policy
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
