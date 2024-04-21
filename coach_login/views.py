@@ -106,7 +106,13 @@ def analyse_your_student(request):
     with connections['default'].cursor() as cursor:
             cursor.execute("SELECT * FROM PLAYER")
             data=cursor.fetchall()
-    return render(request,"analyse-your-student.html",{'data':data})
+            formatted_data=[]
+            for row in data:
+                dop_str = row[2]  
+                formatted_dop = dop_str.strftime("%B %d, %Y")  
+                formatted_row = row[0:2]+(formatted_dop,) +row[3:]  
+                formatted_data.append(formatted_row)
+    return render(request,"analyse-your-student.html",{'data':formatted_data})
 
 def achieving_excellence_through_matches(request):
     if request.method=='POST':
@@ -184,7 +190,7 @@ def insert_modify_fitness_test(request):
             with connections['default'].cursor() as cursor:
                 cursor.execute("SELECT AID FROM FITNESSTEST")
                 data=cursor.fetchall()
-                print(data)
+                #print(data)
                 existing_aids=[item[0] for item in data]
                 cursor.close()
             if aid in existing_aids:
@@ -216,9 +222,22 @@ def view_match_practice(request):
     with connections['default'].cursor() as cursor:
         cursor.execute("SELECT AID,NAME,MATCH_NAME,DOM,AGG_SCORE,OUT_OF,RANK FROM ATTENDS NATURAL JOIN MATCH NATURAL JOIN PLAYER ")
         data1=cursor.fetchall()
+        formatted_data1=[]
+        for row in data1:
+            dop_str = row[3]  
+            formatted_dop = dop_str.strftime("%B %d, %Y")  
+            formatted_row = row[0:3]+(formatted_dop,) +row[4:]  
+            formatted_data1.append(formatted_row)
+        print(formatted_data1)
         cursor.execute("SELECT AID,NAME,DOP,DISTANCE,NO_ARROWS,AGG_SCORE,OUT_OF FROM PRACTICE NATURAL JOIN PLAYER")
         data2=cursor.fetchall()
-    return render(request,"coach_portal_view_match_practice.html",{'data1':data1,'data2':data2})
+        formatted_data2 = []
+        for row in data2:
+            dop_str = row[2]  
+            formatted_dop = dop_str.strftime("%B %d, %Y")  
+            formatted_row = row[0:2]+(formatted_dop,) + row[3:] 
+            formatted_data2.append(formatted_row)
+    return render(request,"coach_portal_view_match_practice.html",{'data1':formatted_data1,'data2':formatted_data2})
 
 def modify_training_protocol(request):  
     if request.method=='POST':
@@ -235,3 +254,15 @@ def modify_training_protocol(request):
 
 def coach_portal(request):
     return render(request,"coach_portal.html")
+
+def audit(request):
+    with connections['default'].cursor() as cursor:
+        cursor.execute("SELECT * FROM AUDIT_PRACTICE")
+        data=cursor.fetchall()
+        formatted_data = []
+        for row in data:
+            dop_str = row[2]  
+            formatted_dop = dop_str.strftime("%B %d, %Y")  
+            formatted_row = row[0:2]+(formatted_dop,) + row[3:] 
+            formatted_data.append(formatted_row)
+    return render(request,"audit_table.html",{'data':formatted_data})
